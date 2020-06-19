@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/vinyl-stream/static/css/main.d13890b5.chunk.css",
-    "main.js": "/vinyl-stream/static/js/main.c561ea8a.chunk.js",
-    "main.js.map": "/vinyl-stream/static/js/main.c561ea8a.chunk.js.map",
+    "main.js": "/vinyl-stream/static/js/main.ab6b734c.chunk.js",
+    "main.js.map": "/vinyl-stream/static/js/main.ab6b734c.chunk.js.map",
     "runtime-main.js": "/vinyl-stream/static/js/runtime-main.5cc6e8f2.js",
     "runtime-main.js.map": "/vinyl-stream/static/js/runtime-main.5cc6e8f2.js.map",
-    "static/js/2.8add4fb4.chunk.js": "/vinyl-stream/static/js/2.8add4fb4.chunk.js",
-    "static/js/2.8add4fb4.chunk.js.map": "/vinyl-stream/static/js/2.8add4fb4.chunk.js.map",
+    "static/js/2.b375a64a.chunk.js": "/vinyl-stream/static/js/2.b375a64a.chunk.js",
+    "static/js/2.b375a64a.chunk.js.map": "/vinyl-stream/static/js/2.b375a64a.chunk.js.map",
     "index.html": "/vinyl-stream/index.html",
-    "precache-manifest.ae8f35e8a2974a10fa9aaff7ed742df1.js": "/vinyl-stream/precache-manifest.ae8f35e8a2974a10fa9aaff7ed742df1.js",
+    "precache-manifest.6b87050c4a78910ed10481f5da032f78.js": "/vinyl-stream/precache-manifest.6b87050c4a78910ed10481f5da032f78.js",
     "service-worker.js": "/vinyl-stream/service-worker.js",
     "static/css/main.d13890b5.chunk.css.map": "/vinyl-stream/static/css/main.d13890b5.chunk.css.map",
-    "static/js/2.8add4fb4.chunk.js.LICENSE.txt": "/vinyl-stream/static/js/2.8add4fb4.chunk.js.LICENSE.txt",
+    "static/js/2.b375a64a.chunk.js.LICENSE.txt": "/vinyl-stream/static/js/2.b375a64a.chunk.js.LICENSE.txt",
     "static/media/Spotify-Logo.png": "/vinyl-stream/static/media/Spotify-Logo.abbff554.png"
   },
   "entrypoints": [
     "static/js/runtime-main.5cc6e8f2.js",
-    "static/js/2.8add4fb4.chunk.js",
+    "static/js/2.b375a64a.chunk.js",
     "static/css/main.d13890b5.chunk.css",
-    "static/js/main.c561ea8a.chunk.js"
+    "static/js/main.ab6b734c.chunk.js"
   ]
 }

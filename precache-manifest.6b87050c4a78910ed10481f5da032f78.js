@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b2bd47c4d42e91190b75aa922bf12e23",
+    "revision": "37dc59e5fa7071ce543fa1d1b7b827a3",
     "url": "/vinyl-stream/index.html"
   },
   {
-    "revision": "6c771f551d6a1663057d",
+    "revision": "3056983b6b2ac9bd6a42",
     "url": "/vinyl-stream/static/css/main.d13890b5.chunk.css"
   },
   {
-    "revision": "177decbac87e2b5dc4c7",
-    "url": "/vinyl-stream/static/js/2.8add4fb4.chunk.js"
+    "revision": "84945c1a4a120e922742",
+    "url": "/vinyl-stream/static/js/2.b375a64a.chunk.js"
   },
   {
-    "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/vinyl-stream/static/js/2.8add4fb4.chunk.js.LICENSE.txt"
+    "revision": "e88a3e95b5364d46e95b35ae8c0dc27d",
+    "url": "/vinyl-stream/static/js/2.b375a64a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "6c771f551d6a1663057d",
-    "url": "/vinyl-stream/static/js/main.c561ea8a.chunk.js"
+    "revision": "3056983b6b2ac9bd6a42",
+    "url": "/vinyl-stream/static/js/main.ab6b734c.chunk.js"
   },
   {
     "revision": "01a9212466ff989420db",
