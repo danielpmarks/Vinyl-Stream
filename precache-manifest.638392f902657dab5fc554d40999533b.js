@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ab06c92494e7faad7fe703ad02a66850",
+    "revision": "16454561378dd80708bb5b1964075628",
     "url": "/vinyl-stream/index.html"
   },
   {
-    "revision": "9ed4c7e26903fe2e47f5",
+    "revision": "c61cabd72ffc4e2d15ce",
     "url": "/vinyl-stream/static/css/main.d13890b5.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vinyl-stream/static/js/2.b375a64a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "9ed4c7e26903fe2e47f5",
-    "url": "/vinyl-stream/static/js/main.765a54d9.chunk.js"
+    "revision": "c61cabd72ffc4e2d15ce",
+    "url": "/vinyl-stream/static/js/main.629ec640.chunk.js"
   },
   {
     "revision": "01a9212466ff989420db",
