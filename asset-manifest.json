@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/vinyl-stream/static/css/main.d13890b5.chunk.css",
-    "main.js": "/vinyl-stream/static/js/main.629ec640.chunk.js",
-    "main.js.map": "/vinyl-stream/static/js/main.629ec640.chunk.js.map",
+    "main.js": "/vinyl-stream/static/js/main.b3d956b6.chunk.js",
+    "main.js.map": "/vinyl-stream/static/js/main.b3d956b6.chunk.js.map",
     "runtime-main.js": "/vinyl-stream/static/js/runtime-main.5cc6e8f2.js",
     "runtime-main.js.map": "/vinyl-stream/static/js/runtime-main.5cc6e8f2.js.map",
     "static/js/2.b375a64a.chunk.js": "/vinyl-stream/static/js/2.b375a64a.chunk.js",
     "static/js/2.b375a64a.chunk.js.map": "/vinyl-stream/static/js/2.b375a64a.chunk.js.map",
     "index.html": "/vinyl-stream/index.html",
-    "precache-manifest.638392f902657dab5fc554d40999533b.js": "/vinyl-stream/precache-manifest.638392f902657dab5fc554d40999533b.js",
+    "precache-manifest.b976f4cf82317161826b6d54bbf5c32f.js": "/vinyl-stream/precache-manifest.b976f4cf82317161826b6d54bbf5c32f.js",
     "service-worker.js": "/vinyl-stream/service-worker.js",
     "static/css/main.d13890b5.chunk.css.map": "/vinyl-stream/static/css/main.d13890b5.chunk.css.map",
     "static/js/2.b375a64a.chunk.js.LICENSE.txt": "/vinyl-stream/static/js/2.b375a64a.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.5cc6e8f2.js",
     "static/js/2.b375a64a.chunk.js",
     "static/css/main.d13890b5.chunk.css",
-    "static/js/main.629ec640.chunk.js"
+    "static/js/main.b3d956b6.chunk.js"
   ]
 }
