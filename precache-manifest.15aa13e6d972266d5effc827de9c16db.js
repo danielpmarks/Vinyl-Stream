@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d55e65db8ac194e2a80d25b14f988367",
+    "revision": "3bcdc787edcfd9b1fa0a451b4b9e69d5",
     "url": "/vinyl-stream/index.html"
   },
   {
