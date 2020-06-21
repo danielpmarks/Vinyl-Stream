@@ -10,6 +10,7 @@
 
 # production
 /build
+/vinyl-stream-backend
 
 # misc
 .DS_Store

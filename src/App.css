@@ -1,38 +1,226 @@
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" );
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+
+button{
+    background: none;
+    border: none;
+
+}
+button:focus{
+    outline: none;
+}
+
+.playlistBlock {
+    position: fixed;
+    z-index: 4;
+    top: 15vh;
+}
+
+.playlistMenu {
+    height: 60vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-radius: 0 2vmin 2vmin 2vmin;
+    border: 2px solid black;
+}
+
+.playlistMenu::-webkit-scrollbar{
+    width: 0px;
+}
+
+.playlistHeader{
+    border-radius: 2vmin 2vmin 0 0;
+    background-color: black;
+    color: white;
+    margin-bottom: -1vmin;
+    width: fit-content;
+    padding: 0 2vmin 2vmin 2vmin;
+    font-size: 6vmin;
+}
+
+.settingsMenu {
+    height: 100vh;
+    width: 40vh;
+    position: fixed;
+    z-index: 4;
+    background-color: #F5F5F5;
+    right: -40vh;
+    border-radius: 3vmin;
+}
+
+@keyframes slideIn {
+    100%{
+        transform: translateX(-40vh);
+    }
+}
+
+@keyframes slideOut {
+    100%{
+        transform: translateX(40vh);
+    }
+}
+
+.settingsButton{
+    padding: 2vmin;
+    border-radius: 2vmin;
+    width: 100%;
+    font-family: "Roboto";
+    margin-bottom: 2vmin;
+}
+
+.colorControls{
+    position: fixed;
+    right: 3vw;
+    bottom: 2vh;
+    background: none;
+    border: none;
+    font-size: 10vmin;
+}
+
+.dimBackground {
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    opacity: 0.2;
+    position: fixed;
+}
+
+.exitSearch{
+    position: fixed;
+    right: 5vw;
+    top: 10vh;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 10vmin;
+    z-index: 4
+}
+
+.searchCard {
+    z-index: 3;
+    position: fixed;
+    
+    width: 70vw;
+    height: 70vh;
+    
+
+    left: 15vw;
+    top: 10vh;
+}
+
+.searchBar{
+    height: 10vmin;
+    border-radius: 2vmin;
+    border: 1px solid black;
+    font-size: 4vmin;
+}
+
+.searchBar:focus {
+    border: 2px solid #1DB954;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.searchResult {
+    background-color: white;
+    width: 70vmin;
+    list-style: none;
+    margin: 0;
+    font-family: "Roboto";
+    font-size: 5vmin;
+    justify-content: start;
+    display: inline-block;
+}
+
+.searchThumbnail {
+    width: 10vmin;
+    height: 10vmin;
+}
+
+.searchList {
+    overflow-y:scroll;
+    border: 2px solid black;
+    border-radius: 2vmin;
+    height: 70vh;
+    width: 100%;
+}
+
+.searchList::-webkit-scrollbar{
+    width: 0px;
+}
+
+.queueButtons{
+    font-size: 4vh;
+}
+
+.VinylStream {
+    color: black;
+    font-family: "Bungee Shade";
+    font-size: 4vmin;
+}
+
+a:link{
+    color: black;
+}
+
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.playbackButtons{
+    outline: none;
+    border: none;
+    background: none;
+}
+
+.playbackButtons:focus {
+    outline: 0;
+}
+
+.playerInfo {
+    font-family: "Roboto";
+    line-height: 100%;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    --max-lines: 2;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.standOut{
+    background-color: white;
+    border-radius: 5px;
+    padding: 2%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.background {
+    
+    background-size: cover;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
+@keyframes rotate{
+    25% {
+        transform: rotate(90deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    75% {
+        transform: rotate(270deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
