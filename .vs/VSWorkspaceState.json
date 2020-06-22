@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\src",
+    "\\src\\Components",
     "\\src\\Pages"
   ],
-  "SelectedNode": "\\src\\Pages\\Player.js",
+  "SelectedNode": "\\src\\Components\\Record.js",
   "PreviewInSolutionExplorer": false
 }

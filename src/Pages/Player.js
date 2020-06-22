@@ -52,7 +52,7 @@ class Player extends React.Component {
                 "linear-gradient(0deg, rgba(48,132,255,1) 0%, rgba(36,39,74,1) 100%)",
             "linear-gradient(0deg, rgba(255,48,62,1) 0%, rgba(51,17,1,1) 100%)"],
             
-            accentColors: ["#bd2f00", "#1f5e63", "#01570f", "#c70905", "#dbe6ff", "#f6d8ca"],
+            accentColors: ["#bd2f00", "#1f5e63", "#320062", "#c70905", "#dbe6ff", "#f6d8ca"],
             accentColor: "black",
 
 
@@ -405,16 +405,16 @@ class Player extends React.Component {
                                 }
                                 <div className="container" style={{ display: "block", color: this.state.accentColor}}>
                                     <div className="row align-items-end justify-content-center" style={{height: "20vh"}}>
-                                        <Truncate lines={2} className="playerInfo" style={{ fontSize: "9vmin", fontWeight: "bold", paddingBottom: "1vmin" }}>
+                                        <Truncate lines={2} className="playerInfo p-3" style={{ fontSize: "9vmin", fontWeight: "bold", paddingBottom: "1vmin" }}>
                                             {nowPlayingSong}</Truncate>
                                     </div>
 
-                                    <div className="row justify-content-center py-4">
-                                        <Truncate lines={1} className="playerInfo" style={{ fontSize: "6vmin", paddingBottom: "1vmin" }}>
+                                    <div className="row justify-content-center">
+                                        <Truncate lines={1} className="playerInfo py-3" style={{ fontSize: "6vmin", paddingBottom: "1vmin" }}>
                                             {nowPlayingAlbum}</Truncate>
                                     </div>
-                                    <div className="row justify-content-center py-2">
-                                        <Truncate lines={1} className="playerInfo" style={{ fontSize: "4vmin", paddingBottom: "1vmin" }}>
+                                    <div className="row justify-content-center">
+                                        <Truncate lines={1} className="playerInfo py-3" style={{ fontSize: "4vmin", paddingBottom: "1vmin" }}>
                                             {nowPlayingArtist}</Truncate>
                                     </div>
 
@@ -502,17 +502,17 @@ class Player extends React.Component {
                                     //Playback information
                                 }
                                 <div className="container" style={{ display: "block", color: this.state.accentColor }}>
-                                    <div className="row justify-content-center py-3">
-                                        <Truncate lines={2} className="playerInfo" style={{fontSize: "7vmin", fontWeight: "bold" }}>
+                                    <div className="row justify-content-center ">
+                                        <Truncate lines={2} className="playerInfo py-3" style={{fontSize: "7vmin", fontWeight: "bold" }}>
                                             {nowPlayingSong}</Truncate>
                                     </div>
 
-                                    <div className="row justify-content-center py-4">
-                                        <Truncate lines={1} className="playerInfo" style={{ fontSize: "5vmin" }}>
+                                    <div className="row justify-content-center ">
+                                        <Truncate lines={1} className="playerInfo py-3" style={{ fontSize: "5vmin" }}>
                                             {nowPlayingAlbum}</Truncate>
                                     </div>
-                                    <div className="row justify-content-center py-2">
-                                        <Truncate lines={1} className="playerInfo" style={{ fontSize: "4vmin" }}>
+                                    <div className="row justify-content-center">
+                                        <Truncate lines={1} className="playerInfo py-3" style={{ fontSize: "4vmin" }}>
                                             {nowPlayingArtist}</Truncate>
                                     </div>
 
@@ -574,20 +574,20 @@ class Player extends React.Component {
                     <div id="topBar" className="container-fluid px-0">
                         <div className="row justify-content-between mx-1" style={{ marginTop: "2vmin" }}>
                             <div className="col-auto "><a className="VinylStream" href="https://danielpmarks.github.io/vinyl-stream/">
-                                <h1 className="VinylStream" style={{color: this.state.accentColor}}>Vinyl Stream</h1></a>
+                                <h1 className="VinylStream" style={{color: this.state.accentColor, fontSize: "5vmin"}}>Vinyl Stream</h1></a>
                             </div>
                             <div className="col-auto">
                                 <div className="row justify-content-end" >
                                     
                                         <button onClick={this.openSearch} className="playbackButtons">
-                                            <i className="material-icons" style={{ fontSize: "5vmin", color: this.state.accentColor }}>search</i></button>
+                                            <i className="material-icons" style={{ fontSize: "7vmin", color: this.state.accentColor }}>search</i></button>
                                     
                                     
                                     <button onClick={this.openPlaylistView} className="playbackButtons">
-                                            <i className="material-icons" style={{ fontSize: "5vmin", color: this.state.accentColor }}>playlist_play</i></button>
+                                            <i className="material-icons" style={{ fontSize: "7vmin", color: this.state.accentColor }}>playlist_play</i></button>
 
                                     <button onClick={this.openSettings} className="playbackButtons">
-                                        <i className="material-icons" style={{ fontSize: "5vmin", color: this.state.accentColor }}> settings</i></button>
+                                        <i className="material-icons" style={{ fontSize: "7vmin", color: this.state.accentColor }}> settings</i></button>
                                 </div>
                             </div>
                         </div>
@@ -597,23 +597,23 @@ class Player extends React.Component {
                         
 
                         
-                            <div className="col" style={{ height: "30vh", marginTop: "65vh"}}>
+                            <div className="col" style={{ height: "30vh", marginTop: "57vh"}}>
 
                                 {
                                     //Playback information
                                 }
                             <div className="container" style={{ display: "block", color: this.state.accentColor }}>
-                                    <div className="row justify-content-center py-1">
-                                        <Truncate lines={2} className="playerInfo" style={{ fontSize: "7vmin", fontWeight: "bold" }}>
+                                    <div className="row justify-content-center">
+                                    <Truncate lines={2} className="playerInfo py-3" style={{ fontSize: "7vmin", fontWeight: "bold" }}>
                                             {nowPlayingSong}</Truncate>
                                     </div>
 
-                                    <div className="row justify-content-center py-1">
-                                        <Truncate lines={1} className="playerInfo" style={{ fontSize: "4vmin" }}>
+                                    <div className="row justify-content-center ">
+                                    <Truncate lines={1} className="playerInfo py-3" style={{ fontSize: "4vmin" }}>
                                             {nowPlayingAlbum}</Truncate>
                                     </div>
-                                    <div className="row justify-content-center py-1">
-                                        <Truncate lines={1} className="playerInfo" style={{ fontSize: "3vmin" }}>
+                                    <div className="row justify-content-center ">
+                                    <Truncate lines={1} className="playerInfo py-3" style={{ fontSize: "3vmin" }}>
                                             {nowPlayingArtist}</Truncate>
                                 </div>
                                 </div>
@@ -650,7 +650,7 @@ class Player extends React.Component {
                             //Vinyl Record
                         }
                         <div className="col-6 align-self-center">
-                            <Record colorIndex={this.state.colorIndex} loc={{ size: 70, right: 50, top: 40}} playing={this.state.is_playing ? "running" : "paused"} src={nowPlayingCover} />
+                            <Record colorIndex={this.state.colorIndex} loc={{ size: 80, right: 50, top: 37}} playing={this.state.is_playing ? "running" : "paused"} src={nowPlayingCover} />
                         </div>
 
                     </div>
