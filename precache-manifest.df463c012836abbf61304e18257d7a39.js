@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "905f2ff437dca0f0c882166f099945d2",
+    "revision": "51b742c0ee253c3216fca78e3915b818",
     "url": "/vinyl-stream/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vinyl-stream/static/css/2.ed590494.chunk.css"
   },
   {
-    "revision": "6fee435b7324bdd01a77",
+    "revision": "97282da676895168350a",
     "url": "/vinyl-stream/static/css/main.d13890b5.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vinyl-stream/static/js/2.b85bdec2.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "6fee435b7324bdd01a77",
-    "url": "/vinyl-stream/static/js/main.d19ac2c6.chunk.js"
+    "revision": "97282da676895168350a",
+    "url": "/vinyl-stream/static/js/main.c3fb2ff7.chunk.js"
   },
   {
     "revision": "01a9212466ff989420db",

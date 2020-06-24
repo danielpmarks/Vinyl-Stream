@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/vinyl-stream/static/css/main.d13890b5.chunk.css",
-    "main.js": "/vinyl-stream/static/js/main.d19ac2c6.chunk.js",
-    "main.js.map": "/vinyl-stream/static/js/main.d19ac2c6.chunk.js.map",
+    "main.js": "/vinyl-stream/static/js/main.c3fb2ff7.chunk.js",
+    "main.js.map": "/vinyl-stream/static/js/main.c3fb2ff7.chunk.js.map",
     "runtime-main.js": "/vinyl-stream/static/js/runtime-main.5cc6e8f2.js",
     "runtime-main.js.map": "/vinyl-stream/static/js/runtime-main.5cc6e8f2.js.map",
     "static/css/2.ed590494.chunk.css": "/vinyl-stream/static/css/2.ed590494.chunk.css",
     "static/js/2.b85bdec2.chunk.js": "/vinyl-stream/static/js/2.b85bdec2.chunk.js",
     "static/js/2.b85bdec2.chunk.js.map": "/vinyl-stream/static/js/2.b85bdec2.chunk.js.map",
     "index.html": "/vinyl-stream/index.html",
-    "precache-manifest.176912ea9005f58f02950d3b6c0097ec.js": "/vinyl-stream/precache-manifest.176912ea9005f58f02950d3b6c0097ec.js",
+    "precache-manifest.df463c012836abbf61304e18257d7a39.js": "/vinyl-stream/precache-manifest.df463c012836abbf61304e18257d7a39.js",
     "service-worker.js": "/vinyl-stream/service-worker.js",
     "static/css/2.ed590494.chunk.css.map": "/vinyl-stream/static/css/2.ed590494.chunk.css.map",
     "static/css/main.d13890b5.chunk.css.map": "/vinyl-stream/static/css/main.d13890b5.chunk.css.map",
@@ -21,6 +21,6 @@
     "static/css/2.ed590494.chunk.css",
     "static/js/2.b85bdec2.chunk.js",
     "static/css/main.d13890b5.chunk.css",
-    "static/js/main.d19ac2c6.chunk.js"
+    "static/js/main.c3fb2ff7.chunk.js"
   ]
 }
