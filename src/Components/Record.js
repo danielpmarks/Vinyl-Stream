@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import '../App.css';
+import { Draggable } from 'gsap/all';
 
 
-class Record extends React.Component {
+class Record extends Component {
+
 
     render() {
-        var centerColors = ["#fee5cc", "#97bcaf", "#7dc1cc", "#fcd134", "#284484", "#711a14"]
+        var centerColors = ["#fee5cc", "#97bcaf", "#7dc1cc", "#fcd134", "#284484", "#711a14", "#8e8e8e"]
 
         var size = this.props.loc.size;
         var right = this.props.loc.right;
@@ -72,16 +75,19 @@ class Record extends React.Component {
             animationPlayState: this.props.playing
         }
 
+
+        
         
 
         return (
             <div>
+                
                 <img style={recordStyle} src="https://americanvinylco.com/wp-content/uploads/2017/06/LabelsBlank-1024x1024.png" />
                 <div style={albumBack}/>
                 <img src={this.props.src} style={albumStyle} />
                 <div style={centerCircle} />
-               
-                
+
+                <div/>
             </div>
         );
     }

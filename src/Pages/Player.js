@@ -1,9 +1,14 @@
 import React from 'react';
 import Truncate from 'react-truncate';
+
+import Slider, { Range } from 'rc-slider';
+import 'rc-slider/assets/index.css';
+
 import '../App.css';
 import Record from '../Components/Record.js';
 import Search from '../Components/Search.js'
 import SettingsMenu from '../Components/SettingsMenu.js'
+import ProgressSlider from '../Components/ProgressSlider.js'
 
 import logo from '../res/Spotify-Logo.png'
 import PlaylistView from '../Components/PlaylistView';
@@ -11,6 +16,14 @@ import PlaylistView from '../Components/PlaylistView';
 var Spotify = require('spotify-web-api-js')
 const spotifyApi = new Spotify();
 
+let colors = ["linear-gradient(rgba(255, 187, 170, 1), rgba(254, 255, 225, 1))",
+    "linear-gradient(180deg, rgba(170,240,255,1) 0%, rgba(238,226,131,1) 100%)",
+    "linear-gradient(180deg, rgba(191, 170, 255, 1) 0%, rgba(49, 221, 147, 1) 100%)",
+    "linear-gradient(0deg, rgba(246,137,59,1) 0%, rgba(255,239,50,1) 100%)",
+    "linear-gradient(0deg, rgba(48,132,255,1) 0%, rgba(36,39,74,1) 100%)",
+    "linear-gradient(0deg, rgba(255,48,62,1) 0%, rgba(51,17,1,1) 100%)",
+    "linear-gradient(0deg, rgba(134,134,134,1) 0%, rgba(255,255,255,1) 100%)"];
+let accentColors = ["#bd2f00", "#1f5e63", "#320062", "#c70905", "#dbe6ff", "#f6d8ca", "#1d1d1d"]
 
 
 class Player extends React.Component {
@@ -25,9 +38,9 @@ class Player extends React.Component {
         this.state = {
             loggedIn: token ? true : false,
             nowPlaying: {
-                name: 'Play a track on Spotify',
-                album: 'N/A',
-                artist: 'N/A',
+                name: 'Open Spotify and start a song',
+                album: '',
+                artist: '',
                 albumArt: logo
             },
             is_playing: false,
@@ -50,16 +63,24 @@ class Player extends React.Component {
                 "linear-gradient(180deg, rgba(191, 170, 255, 1) 0%, rgba(49, 221, 147, 1) 100%)",
                 "linear-gradient(0deg, rgba(246,137,59,1) 0%, rgba(255,239,50,1) 100%)",
                 "linear-gradient(0deg, rgba(48,132,255,1) 0%, rgba(36,39,74,1) 100%)",
-            "linear-gradient(0deg, rgba(255,48,62,1) 0%, rgba(51,17,1,1) 100%)"],
+                "linear-gradient(0deg, rgba(255,48,62,1) 0%, rgba(51,17,1,1) 100%)",
+            "linear-gradient(0deg, rgba(134,134,134,1) 0%, rgba(255,255,255,1) 100%)"],
             
-            accentColors: ["#bd2f00", "#1f5e63", "#320062", "#c70905", "#dbe6ff", "#f6d8ca"],
-            accentColor: "black",
+            accentColors: ["#bd2f00", "#1f5e63", "#320062", "#c70905", "#dbe6ff", "#f6d8ca", "#1d1d1d"],
+            accentColor: "",
 
 
-            colorIndex: 0,
-            background_color: "linear-gradient(rgba(255, 187, 170, 1), rgba(254, 255, 225, 1))",
+            colorIndex: "",
+            background_color: "",
 
-            settingsOpen: false
+            settingsOpen: false,
+
+            currentTrack: {},
+
+            searchButton: true,
+            playlistButton: true,
+            settingsButton: true,
+            
 
         } 
 
@@ -97,9 +118,27 @@ class Player extends React.Component {
     }
 
     componentDidMount() {
-        
-        this.interval = setInterval(() => (this.getNowPlaying(), this.recalibrate()), 1000);
-        
+
+        this.interval = setInterval(() => (this.getNowPlaying(), this.recalibrate()), 750);
+
+        let cIndex = localStorage.getItem('colorIndex');
+        let accent = localStorage.getItem('accentColor');
+        console.log(cIndex + " " + accent);
+        if (cIndex == undefined || accent == undefined) {
+            this.setState({
+                colorIndex: 0,
+                accentColor: "black",
+
+                background_color: colors[0],
+            })
+        } else {
+            this.setState({
+                colorIndex: cIndex,
+                accentColor: accent,
+
+                background_color: colors[cIndex],
+            })
+        }
     }
 
     componentWillUnmount() {
@@ -144,35 +183,48 @@ class Player extends React.Component {
 
     openSettings() {
         this.setState({
-            settingsOpen: true
+            settingsOpen: true,
+            searchButton: false,
+            playlistButton: false
         });
         
     }
 
     closeSettings() {
+        
         this.setState({
-            settingsOpen: false
+            settingsOpen: false,
+            searchButton: true,
+            playlistButton: true
         });
     }
 
     changeColor() {
-        console.log("color");
-        var nextIndex = (this.state.colorIndex + 1) % this.state.colors.length;
+        
+        let nextIndex = (this.state.colorIndex + 1) % colors.length;
+        let nextBackground = colors[nextIndex];
+        let nextAccent = this.state.accentColor === "white" ? "white" : this.state.accentColor === "black" ? "black" :
+            accentColors[nextIndex]
+
         this.setState({
             colorIndex: nextIndex,
-            background_color: this.state.colors[nextIndex],
-            accentColor: this.state.accentColor == "white" ? "white" : this.state.accentColor == "black" ? "black" :
-                this.state.accentColors[nextIndex]
+            background_color: nextBackground,
+            accentColor: nextAccent
         });
+        localStorage.setItem('colorIndex', nextIndex);
+        localStorage.setItem('accentColor', nextAccent);
 
       
     }
 
     changeTextColor() {
+        let nextAccent = this.state.accentColor === "black" ? "white" :
+            this.state.accentColor === "white" ? accentColors[this.state.colorIndex] : "black"
         this.setState({
-            accentColor: this.state.accentColor === "black" ? "white" :
-                this.state.accentColor === "white" ? this.state.accentColors[this.state.colorIndex] : "black"
+            accentColor: nextAccent
         });
+
+        localStorage.setItem('accentColor', nextAccent);
     }
 
     getPlaylists() {
@@ -197,13 +249,17 @@ class Player extends React.Component {
 
     openPlaylistView() {
         this.setState({
-            playlistView: true
+            playlistView: true,
+            searchButton: false,
+            settingsButton: false
         })
     }
 
     exitPlaylistView() {
         this.setState({
-            playlistView: false
+            playlistView: false,
+            searchButton: true,
+            settingsButton: true
         })
     }
 
@@ -212,7 +268,7 @@ class Player extends React.Component {
         if (value != undefined) {
             spotifyApi.search(value, ['track'])
                 .then((response) => {
-                    console.log(response);
+                    //console.log(response);
                     var results = [];
                     for (var i = 0; i < 10; i++) {
                         var track = response.tracks.items[i];
@@ -227,13 +283,17 @@ class Player extends React.Component {
 
     openSearch() {
         this.setState({
-            search: true
+            search: true,
+            playlistButton: false,
+            settingsButton: false
         });
     }
 
     exitSearch() {
         this.setState({
-            search: false
+            search: false,
+            playlistButton: true,
+            settingsButton: true
         });
     }
 
@@ -289,9 +349,9 @@ class Player extends React.Component {
         var repeat = this.state.repeat_state;
 
         var nextState = "";
-        if (repeat == "off") {
+        if (repeat === "off") {
             nextState = "context";
-        } else if (repeat == "context") {
+        } else if (repeat === "context") {
             nextState = "track";
         } else {
             nextState = "off";
@@ -311,13 +371,14 @@ class Player extends React.Component {
                 //console.log(response);
                 if (response != undefined && response.item != undefined) {
                     this.setState({
-
+                       
                         nowPlaying: {
                             name: response.item.name,
                             album: response.item.album.name,
                             artist: response.item.artists[0].name,
                             albumArt: response.item.album.images[0].url
-                        }
+                        },
+                        currentTrack: response
                     });
                 }
 
@@ -359,11 +420,10 @@ class Player extends React.Component {
         var nowPlayingCover = this.state.nowPlaying.albumArt;
 
 
-
         if (window.innerHeight / window.innerWidth <= 7 / 10) {
             
             return (
-                <div className="background" style={{"backgroundImage": this.state.colors[this.state.colorIndex]}}>
+                <div className="background" style={{"backgroundImage": colors[this.state.colorIndex]}}>
 
                     <Search exit={this.exitSearch} enabled={this.state.search} selection={this.playSong} results={this.state.searchList} value={this.search} />
                     <SettingsMenu open={this.state.settingsOpen} close={this.closeSettings} color={this.state.background_color} accentColor={this.state.accentColor} changeColor={this.changeColor} changeTextColor={this.changeTextColor} />
@@ -382,13 +442,13 @@ class Player extends React.Component {
                             </div>
                             <div className="col-auto mx-5">
                                 <div className="row justify-content-end" >
-                                    
-                                        <button onClick={this.openSearch} className="playbackButtons">
+
+                                    <button disabled={!this.state.searchButton} onClick={this.openSearch} className="playbackButtons">
                                             <i className="material-icons" style={{ fontSize: "5vmin", color: this.state.accentColor }}>search</i></button>
-                                    
-                                    <button onClick={this.openPlaylistView} className="playbackButtons">
+
+                                    <button disabled={!this.state.playlistButton} onClick={this.openPlaylistView} className="playbackButtons">
                                             <i className="material-icons" style={{ fontSize: "5vmin", color: this.state.accentColor }}>playlist_play</i></button>
-                                    <button onClick={this.openSettings} className="playbackButtons">
+                                    <button disabled={!this.state.settingsButton} onClick={this.openSettings} className="playbackButtons">
                                             <i className="material-icons" style={{ fontSize: "5vmin", color: this.state.accentColor }}> settings</i></button>
                                 </div>
                             </div>
@@ -423,7 +483,7 @@ class Player extends React.Component {
                                     }
                                     <div className="row justify-content-center" style={{ marginTop: "2vh"}}>
                                         <button className="playbackButtons" onClick={this.setShuffle} >
-                                            <i style={{ fontSize: "6vmin", color: (this.state.shuffle_state ? "#1DB954" : this.state.accentColor) }} className='material-icons queueButtons'>shuffle</i></button>
+                                            <i style={{fontSize: "6vmin", color: (this.state.shuffle_state ? "#1DB954" : this.state.accentColor) }} className='material-icons queueButtons'>shuffle</i></button>
 
                                         <div className="row" style={{ marginLeft: "3vmin", marginRight: "3vmin"}}>
                                             <button className="playbackButtons" onClick={this.skipToPrevious}>
@@ -437,9 +497,9 @@ class Player extends React.Component {
                                         </div>
 
                                         <button className="playbackButtons" onClick={this.setRepeat}>
-                                            <i style={{ fontSize: "6vmin", color: (this.state.repeat_state != "off" ? "#1DB954" : this.state.accentColor) }}
+                                            <i style={{ fontSize: "6vmin", color: (this.state.repeat_state !== "off" ? "#1DB954" : this.state.accentColor) }}
                                                 className='material-icons queueButtons'>
-                                                {this.state.repeat_state == "track" ? "repeat_one" : "repeat"}</i></button>
+                                                {this.state.repeat_state === "track" ? "repeat_one" : "repeat"}</i></button>
 
                                     </div>
                                 </div>
@@ -463,7 +523,7 @@ class Player extends React.Component {
             );
         } else if (window.innerHeight / window.innerWidth <= 7/5) {
             return (
-                <div className="background" style={{ "backgroundImage": this.state.colors[this.state.colorIndex] }}>
+                <div className="background" style={{ "backgroundImage": colors[this.state.colorIndex] }}>
 
                     <Search exit={this.exitSearch} enabled={this.state.search} selection={this.playSong} results={this.state.searchList} value={this.search} />
                     <SettingsMenu open={this.state.settingsOpen} close={this.closeSettings} color={this.state.background_color} accentColor={this.state.accentColor} changeColor={this.changeColor} changeTextColor={this.changeTextColor} />
@@ -535,11 +595,14 @@ class Player extends React.Component {
                                         </div>
 
                                         <button className="playbackButtons" onClick={this.setRepeat}>
-                                            <i style={{ fontSize: "3vmin", color: (this.state.repeat_state != "off" ? "#1DB954" : this.state.accentColor) }}
+                                            <i style={{ fontSize: "3vmin", color: (this.state.repeat_state !== "off" ? "#1DB954" : this.state.accentColor) }}
                                                 className='material-icons queueButtons'>
-                                                {this.state.repeat_state == "track" ? "repeat_one" : "repeat"}</i></button>
+                                                {this.state.repeat_state === "track" ? "repeat_one" : "repeat"}</i></button>
+
+
 
                                     </div>
+                                    
                                 </div>
 
                             </div>
@@ -562,7 +625,7 @@ class Player extends React.Component {
         } else {
             
             return (
-                <div className="background" style={{ "backgroundImage": this.state.colors[this.state.colorIndex] }}>
+                <div className="background" style={{ "backgroundImage": colors[this.state.colorIndex] }}>
 
                     <Search exit={this.exitSearch} enabled={this.state.search} selection={this.playSong} results={this.state.searchList} value={this.search} />
                     <SettingsMenu open={this.state.settingsOpen} close={this.closeSettings} color={this.state.background_color} accentColor={this.state.accentColor} changeColor={this.changeColor} changeTextColor={this.changeTextColor} />
@@ -638,9 +701,9 @@ class Player extends React.Component {
                                         </div>
 
                                         <button className="playbackButtons" onClick={this.setRepeat}>
-                                            <i style={{ fontSize: "6vmin", color: (this.state.repeat_state != "off" ? "#1DB954" : this.state.accentColor) }}
+                                            <i style={{ fontSize: "6vmin", color: (this.state.repeat_state !== "off" ? "#1DB954" : this.state.accentColor) }}
                                                 className='material-icons queueButtons'>
-                                                {this.state.repeat_state == "track" ? "repeat_one" : "repeat"}</i></button>
+                                                {this.state.repeat_state === "track" ? "repeat_one" : "repeat"}</i></button>
 
                                 </div>
                                 </div>
