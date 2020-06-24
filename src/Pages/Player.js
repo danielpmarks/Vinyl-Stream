@@ -13,6 +13,8 @@ import ProgressSlider from '../Components/ProgressSlider.js'
 import logo from '../res/Spotify-Logo.png'
 import PlaylistView from '../Components/PlaylistView';
 
+import Fullscreen from 'react-full-screen'
+
 var Spotify = require('spotify-web-api-js')
 const spotifyApi = new Spotify();
 
@@ -80,8 +82,6 @@ class Player extends React.Component {
             searchButton: true,
             playlistButton: true,
             settingsButton: true,
-            
-
         } 
 
         this.getNowPlaying();
@@ -109,9 +109,8 @@ class Player extends React.Component {
 
         this.changeColor = this.changeColor.bind(this);
         this.changeTextColor = this.changeTextColor.bind(this);
-        
-        
-        
+
+        this.toggleFullscreen = this.toggleFullscreen.bind(this);
         
         this.handleKeyPress = this.handleKeyPress.bind(this);
         document.addEventListener("keydown", this.handleKeyPress);
@@ -410,6 +409,18 @@ class Player extends React.Component {
         }
     }
 
+    toggleFullscreen() {
+        let app = document.querySelector("#app");
+
+        if (!document.fullscreenElement) {
+            app.requestFullscreen().catch(err => {
+                alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`)
+            });
+        } else {
+            document.exitFullscreen();
+        }
+    }
+
     render() {
 
 
@@ -423,10 +434,10 @@ class Player extends React.Component {
         if (window.innerHeight / window.innerWidth <= 7 / 10) {
             
             return (
-                <div className="background" style={{"backgroundImage": colors[this.state.colorIndex]}}>
-
+                <div id="app" className="background" style={{"backgroundImage": colors[this.state.colorIndex]}}>
+                    
                     <Search exit={this.exitSearch} enabled={this.state.search} selection={this.playSong} results={this.state.searchList} value={this.search} />
-                    <SettingsMenu open={this.state.settingsOpen} close={this.closeSettings} color={this.state.background_color} accentColor={this.state.accentColor} changeColor={this.changeColor} changeTextColor={this.changeTextColor} />
+                    <SettingsMenu fullscreen={this.toggleFullscreen} open={this.state.settingsOpen} close={this.closeSettings} color={this.state.background_color} accentColor={this.state.accentColor} changeColor={this.changeColor} changeTextColor={this.changeTextColor} />
                     <PlaylistView exit={this.exitPlaylistView} enabled={this.state.playlistView} playlists={this.state.userPlaylists} startPlaylist={this.startPlaylist} width="60vw" left="20vw"/>
 
 
@@ -442,6 +453,7 @@ class Player extends React.Component {
                             </div>
                             <div className="col-auto mx-5">
                                 <div className="row justify-content-end" >
+                                    
 
                                     <button disabled={!this.state.searchButton} onClick={this.openSearch} className="playbackButtons">
                                             <i className="material-icons" style={{ fontSize: "5vmin", color: this.state.accentColor }}>search</i></button>
@@ -516,17 +528,17 @@ class Player extends React.Component {
 
                         
 
-                    </div>
+                        </div>
                 </div>
 
 
             );
         } else if (window.innerHeight / window.innerWidth <= 7/5) {
             return (
-                <div className="background" style={{ "backgroundImage": colors[this.state.colorIndex] }}>
+                <div id="app" className="background" style={{ "backgroundImage": colors[this.state.colorIndex] }}>
 
                     <Search exit={this.exitSearch} enabled={this.state.search} selection={this.playSong} results={this.state.searchList} value={this.search} />
-                    <SettingsMenu open={this.state.settingsOpen} close={this.closeSettings} color={this.state.background_color} accentColor={this.state.accentColor} changeColor={this.changeColor} changeTextColor={this.changeTextColor} />
+                    <SettingsMenu fullscreen={this.toggleFullscreen} open={this.state.settingsOpen} close={this.closeSettings} color={this.state.background_color} accentColor={this.state.accentColor} changeColor={this.changeColor} changeTextColor={this.changeTextColor} />
                     <PlaylistView exit={this.exitPlaylistView} enabled={this.state.playlistView} playlists={this.state.userPlaylists} startPlaylist={this.startPlaylist} width="70vw" left="15vw" />
 
 
@@ -625,10 +637,10 @@ class Player extends React.Component {
         } else {
             
             return (
-                <div className="background" style={{ "backgroundImage": colors[this.state.colorIndex] }}>
+                <div id="app" className="background" style={{ "backgroundImage": colors[this.state.colorIndex] }}>
 
                     <Search exit={this.exitSearch} enabled={this.state.search} selection={this.playSong} results={this.state.searchList} value={this.search} />
-                    <SettingsMenu open={this.state.settingsOpen} close={this.closeSettings} color={this.state.background_color} accentColor={this.state.accentColor} changeColor={this.changeColor} changeTextColor={this.changeTextColor} />
+                    <SettingsMenu fullscreen={this.toggleFullscreen} open={this.state.settingsOpen} close={this.closeSettings} color={this.state.background_color} accentColor={this.state.accentColor} changeColor={this.changeColor} changeTextColor={this.changeTextColor} />
                     <PlaylistView exit={this.exitPlaylistView} enabled={this.state.playlistView} playlists={this.state.userPlaylists} startPlaylist={this.startPlaylist} width="70vw" left="15vw" />
                     {
                         //Nav bar
