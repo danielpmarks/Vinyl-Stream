@@ -465,7 +465,7 @@ class Player extends React.Component {
                                 }
                                 <div className="container" style={{ display: "block", color: this.state.accentColor}}>
                                     <div className="row align-items-end justify-content-center" style={{height: "20vh"}}>
-                                        <Truncate lines={2} className="playerInfo p-3" style={{ fontSize: "9vmin", fontWeight: "bold", paddingBottom: "1vmin" }}>
+                                        <Truncate lines={2} className="playerInfo py-3" style={{ fontSize: "9vmin", fontWeight: "bold", paddingBottom: "1vmin" }}>
                                             {nowPlayingSong}</Truncate>
                                     </div>
 
@@ -542,11 +542,11 @@ class Player extends React.Component {
                             <div className="col-auto mx-5">
                                 <div className="row justify-content-end" >
                                     
-                                    <button onClick={this.openSearch} className="playbackButtons"><i className="material-icons" style={{ fontSize: "5vmin", color: this.state.accentColor }}>search</i></button>
-                                    
-                                    <button onClick={this.openPlaylistView} className="playbackButtons"><i className="material-icons" style={{ fontSize: "5vmin", color: this.state.accentColor }}>playlist_play</i></button>
+                                    <button disabled={!this.state.searchButton} onClick={this.openSearch} className="playbackButtons"><i className="material-icons" style={{ fontSize: "5vmin", color: this.state.accentColor }}>search</i></button>
 
-                                    <button onClick={this.openSettings} className="playbackButtons">
+                                    <button disabled={!this.state.playlistButton} onClick={this.openPlaylistView} className="playbackButtons"><i className="material-icons" style={{ fontSize: "5vmin", color: this.state.accentColor }}>playlist_play</i></button>
+
+                                    <button disabled={!this.state.settingsButton} onClick={this.openSettings} className="playbackButtons">
                                         <i className="material-icons" style={{ fontSize: "5vmin", color: this.state.accentColor }}> settings</i></button>
                                     </div>
                           </div>
@@ -642,14 +642,14 @@ class Player extends React.Component {
                             <div className="col-auto">
                                 <div className="row justify-content-end" >
                                     
-                                        <button onClick={this.openSearch} className="playbackButtons">
+                                    <button disabled={!this.state.searchButton} onClick={this.openSearch} className="playbackButtons">
                                             <i className="material-icons" style={{ fontSize: "7vmin", color: this.state.accentColor }}>search</i></button>
                                     
-                                    
-                                    <button onClick={this.openPlaylistView} className="playbackButtons">
+
+                                    <button disabled={!this.state.playlistButton} onClick={this.openPlaylistView} className="playbackButtons">
                                             <i className="material-icons" style={{ fontSize: "7vmin", color: this.state.accentColor }}>playlist_play</i></button>
 
-                                    <button onClick={this.openSettings} className="playbackButtons">
+                                    <button disabled={!this.state.settingsButton} onClick={this.openSettings} className="playbackButtons">
                                         <i className="material-icons" style={{ fontSize: "7vmin", color: this.state.accentColor }}> settings</i></button>
                                 </div>
                             </div>
